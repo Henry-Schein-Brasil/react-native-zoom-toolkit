@@ -1,0 +1,51 @@
+name: Publish Module
+
+on:
+  release:
+    types: [created]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          always-auth: true
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Create .npmrc file
+        run: |
+          echo "@henry-schein-brasil:registry=https://npm.pkg.github.com
+          //npm.pkg.github.com/:_authToken=${{secrets.TOKEN}}
+          always-auth=true" > ~/.npmrc
+
+      - name: Publish Package
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
