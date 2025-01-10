@@ -35,6 +35,7 @@ const minScale = 1;
 const config = { duration: 300, easing: Easing.linear };
 
 type ReflectionProps = {
+  displayingVideo?: boolean;
   length: number;
   maxScale: SharedValue<number>;
   itemSize: Readonly<SharedValue<number>>;
@@ -61,6 +62,7 @@ type ReflectionProps = {
  * component updates and only update themselves if they are the current item.
  */
 const Reflection = ({
+  displayingVideo = false,
   length,
   maxScale,
   itemSize,
@@ -260,7 +262,9 @@ const Reflection = ({
       cancelAnimation(translate.y);
 
       const isVerticalPan = Math.abs(e.velocityY) > Math.abs(e.velocityX);
-      isPullingVertical.value = isVerticalPan && scale.value === 1 && !vertical;
+      isPullingVertical.value = displayingVideo
+        ? false
+        : isVerticalPan && scale.value === 1 && !vertical;
       isScrolling.value = true;
 
       time.value = performance.now();
@@ -398,7 +402,7 @@ const Reflection = ({
       width: width * scaleOffset.value,
       height: height * scaleOffset.value,
       position: 'absolute',
-      zIndex: Number.MAX_SAFE_INTEGER,
+      zIndex: displayingVideo ? 5 : Number.MAX_SAFE_INTEGER,
       transform: [
         { translateX: translate.x.value },
         { translateY: translate.y.value },

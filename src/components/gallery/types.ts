@@ -25,6 +25,7 @@ export type GalleryTransitionCallback = (
 ) => ViewStyle;
 
 export type GalleryProps<T = unknown> = {
+  displayingVideo?: boolean;
   data: T[];
   renderItem: (item: T, index: number) => React.ReactElement;
   keyExtractor?: (item: T, index: number) => string;

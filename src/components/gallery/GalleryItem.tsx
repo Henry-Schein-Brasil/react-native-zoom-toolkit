@@ -12,6 +12,7 @@ import { GalleryContext } from './context';
 import type { GalleryTransitionCallback } from './types';
 
 type GalleryItemProps = {
+  displayingVideo?: boolean;
   item: any;
   index: number;
   zIndex: number;
@@ -21,6 +22,7 @@ type GalleryItemProps = {
 };
 
 const GalleryItem = ({
+  displayingVideo = false,
   index,
   zIndex,
   item,
@@ -138,7 +140,14 @@ const GalleryItem = ({
   return (
     <Animated.View
       testID={`child-${index}`}
-      style={[animatedRootStyles, transitionStyle, { zIndex }]}
+      style={[
+        animatedRootStyles,
+        transitionStyle,
+        {
+          zIndex: displayingVideo ? Number.MAX_SAFE_INTEGER : zIndex,
+          ...(displayingVideo ? {} : { height: '100%' }),
+        },
+      ]}
     >
       <Animated.View style={childStyle} onLayout={measureChild}>
         {renderItem(item, index)}

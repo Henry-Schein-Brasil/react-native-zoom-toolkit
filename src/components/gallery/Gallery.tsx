@@ -22,6 +22,7 @@ type GalleryPropsWithRef<T> = GalleryProps<T> & {
 
 const Gallery = <T,>(props: GalleryPropsWithRef<T>) => {
   const {
+    displayingVideo = false,
     reference,
     data,
     renderItem,
@@ -205,6 +206,7 @@ const Gallery = <T,>(props: GalleryPropsWithRef<T>) => {
 
         return (
           <GalleryItem
+            displayingVideo={displayingVideo}
             key={key}
             zIndex={data.length - index}
             index={index}
@@ -217,12 +219,13 @@ const Gallery = <T,>(props: GalleryPropsWithRef<T>) => {
       })}
 
       <Reflection
+        displayingVideo={displayingVideo}
         maxScale={maxScale}
         itemSize={itemSize}
         length={data.length}
         vertical={vertical}
         tapOnEdgeToItem={tapOnEdgeToItem}
-        zoomEnabled={zoomEnabled}
+        zoomEnabled={displayingVideo ? false : zoomEnabled}
         scaleMode={scaleMode}
         allowOverflow={allowOverflow}
         allowPinchPanning={allowPinchPanning}
