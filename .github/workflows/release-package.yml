@@ -27,7 +27,18 @@ jobs:
           always-auth: true
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Create .npmrc file
+        run: |
+          echo "@henry-schein-brasil:registry=https://npm.pkg.github.com
+          //npm.pkg.github.com/:_authToken=${{secrets.TOKEN}}
+          always-auth=true" > ~/.npmrc
+
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
