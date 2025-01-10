@@ -1,5 +1,5 @@
 {
-  "name": "react-native-zoom-toolkit",
+  "name": "@henry-schein-brasil/react-native-zoom-toolkit",
   "version": "4.0.2",
   "description": "Smoothly zoom any image, video or component you want!",
   "main": "lib/commonjs/index",
@@ -60,14 +60,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Glazzes/react-native-zoom-toolkit.git"
+    "url": "git+https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit.git"
   },
   "author": "Glazzes <santiagop1@protonmail.com> (https://github.com/Glazzes)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Glazzes/react-native-zoom-toolkit/issues"
+    "url": "https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/issues"
   },
-  "homepage": "https://glazzes.github.io/react-native-zoom-toolkit/",
+  "homepage": "https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit#readme",
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@babel/preset-env": "^7.24.0",
