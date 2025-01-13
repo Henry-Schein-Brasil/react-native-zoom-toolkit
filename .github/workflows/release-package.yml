@@ -36,7 +36,13 @@ jobs:
         run: |
           echo "npmRegistries:
                   'https://npm.pkg.github.com':
-                    npmAuthToken: '${NODE_AUTH_TOKEN}'" > ~/.yarnrc.yml
+                    npmAuthToken: ${{secrets.TOKEN}}" > ~/.yarnrc.yml
+
+      - name: Verify content of yarnrc.yml
+        run: cat ~/.yarnrc.yml
+
+      - name: Check environment variables
+        run: printenv
 
       - run: yarn npm publish
         env:
