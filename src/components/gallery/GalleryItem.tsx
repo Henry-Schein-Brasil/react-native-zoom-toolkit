@@ -145,7 +145,7 @@ const GalleryItem = ({
         transitionStyle,
         {
           zIndex: displayingVideo ? Number.MAX_SAFE_INTEGER : zIndex,
-          ...(displayingVideo ? {} : { height: '100%' }),
+          ...(displayingVideo ? { height: 'auto' } : { height: '100%' }),
         },
       ]}
     >
