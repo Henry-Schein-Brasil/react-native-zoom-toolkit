@@ -111,10 +111,6 @@
     "react-native-gesture-handler": ">= 2.x.x",
     "react-native-reanimated": ">= 2.x.x"
   },
-  "workspaces": [
-    "example",
-    "docs"
-  ],
   "packageManager": "yarn@3.6.1",
   "engines": {
     "node": ">= 18.0.0"
