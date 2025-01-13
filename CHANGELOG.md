@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/compare/v4.0.5...v4.1.0) (2025-01-13)
+
+
+### Features
+
+* remove workspaces in package.json ([78f2ef7](https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/commit/78f2ef7a953de8b30595ae4d5c8f4c0a45616379))
+
 ### [4.0.5](https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/compare/v4.0.4...v4.0.5) (2025-01-10)
 
 ### [4.0.4](https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/compare/v4.0.3...v4.0.4) (2025-01-10)
