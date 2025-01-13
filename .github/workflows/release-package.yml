@@ -8,9 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check environment variables
-        run: printenv
-
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -38,12 +35,5 @@ jobs:
                   'https://npm.pkg.github.com':
                     npmAuthToken: ${{secrets.TOKEN}}" > ~/.yarnrc.yml
 
-      - name: Verify content of yarnrc.yml
-        run: cat ~/.yarnrc.yml
-
-      - name: Check environment variables
-        run: printenv
-
-      - run: yarn npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.TOKEN}}
+      - name: Publish
+        run: yarn npm publish
