@@ -11,13 +11,14 @@ jobs:
       packages: write
       contents: read
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          always-auth: true
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Build package
+        run: yarn prepare
 
       - name: Configure yarnrc.yml for authentication
         run: |
