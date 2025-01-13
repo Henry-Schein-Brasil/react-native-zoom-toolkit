@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/compare/v3.1.6...v3.2.0) (2025-01-13)
+
+
+### Features
+
+* add auto height to gallery item conditional style ([dc8d529](https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/commit/dc8d529256c20f380507fde29cbc54846fc706a8))
+
 ### [3.1.6](https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/compare/v3.1.5...v3.1.6) (2025-01-13)
 
 ### [3.1.5](https://github.com/Henry-Schein-Brasil/react-native-zoom-toolkit/compare/v3.1.4...v3.1.5) (2025-01-13)
